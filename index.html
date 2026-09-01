@@ -276,8 +276,35 @@
         .section-subtitle {
             color: var(--text-muted);
             font-size: 1rem;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             font-weight: 300;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
         }
 
         .grid {
@@ -297,6 +324,10 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
+        }
+
+        .card.hide {
+            display: none;
         }
 
         .card::before {
@@ -334,6 +365,105 @@
             font-size: 0.95rem;
             font-weight: 300;
             line-height: 1.6;
+        }
+
+        /* Tech Stack Badges Matrix */
+        .tech-matrix {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tech-badge {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-main);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tech-badge:hover {
+            border-color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.08);
+            transform: translateY(-3px);
+            color: var(--accent-gold);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+        }
+
+        /* Interactive Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: left;
+            padding-left: 30px;
+            border-left: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -37px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            background: var(--bg-deep);
+            border: 2px solid var(--accent-gold);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .timeline-date {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(16px);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+        }
+
+        .timeline-content h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 300;
         }
 
         /* Interactive Terminal Console */
@@ -650,8 +780,9 @@
             <nav id="navMenu">
                 <a href="#home" onclick="toggleMenu()">Home</a>
                 <a href="#about" onclick="toggleMenu()">Expertise</a>
+                <a href="#timeline" onclick="toggleMenu()">Milestones</a>
                 <a href="#projects" onclick="toggleMenu()">Portfolio</a>
-                <a href="#terminal-section" onclick="toggleMenu()">Terminal</a>
+                <a href="#terminal-section" onclick="toggleMenu()">CLI</a>
                 <a href="#contact" onclick="toggleMenu()">Contact</a>
             </nav>
             <div class="live-status">
@@ -680,24 +811,74 @@
         <section id="about">
             <h2 class="section-title">Executive Profile</h2>
             <p class="section-subtitle">Pioneering precision engineering and elite user experiences.</p>
-            <div class="card" style="text-align: center; max-width: 750px; margin: 0 auto;">
+            <div class="card" style="text-align: center; max-width: 750px; margin: 0 auto; margin-bottom: 40px;">
                 <p>Specializing in advanced frontend systems, custom platform development, and high-security structural optimization. Dedicated to absolute precision, high performance, and sophisticated digital craftsmanship.</p>
+            </div>
+            
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; color: #fff; margin-bottom: 20px;">Core Technology Matrix</h3>
+            <div class="tech-matrix">
+                <div class="tech-badge">Advanced Frontend</div>
+                <div class="tech-badge">Custom XML Architecture</div>
+                <div class="tech-badge">UI/UX Craftsmanship</div>
+                <div class="tech-badge">Secure Protocols</div>
+                <div class="tech-badge">Performance Tuning</div>
+                <div class="tech-badge">Scalable Systems</div>
+            </div>
+        </section>
+
+        <section id="timeline">
+            <h2 class="section-title">Career Milestones</h2>
+            <p class="section-subtitle">Key evolution phases in architecture and engineering.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2026 - Present</div>
+                    <div class="timeline-content">
+                        <h3>VexorNull Core Infrastructure</h3>
+                        <p>Deploying advanced enterprise web layouts, custom XML publishing systems, and high-security interactive developer tools.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Phase II</div>
+                    <div class="timeline-content">
+                        <h3>Advanced Frontend Systems & UI Craftsmanship</h3>
+                        <p>Mastered performance optimization, smooth DOM rendering, and minimalist dark-mode aesthetic structures.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Foundation</div>
+                    <div class="timeline-content">
+                        <h3>Platform Architecture & Custom Development</h3>
+                        <p>Initiated deep research into web design protocols, structural coding, and rigorous digital execution frameworks.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="projects">
             <h2 class="section-title">Flagship Ventures</h2>
             <p class="section-subtitle">Exclusive digital assets and custom enterprise frameworks.</p>
-            <div class="grid">
-                <article class="card">
+            
+            <div class="filter-tabs">
+                <button class="filter-btn active" onclick="filterProjects('all', event)">All Ventures</button>
+                <button class="filter-btn" onclick="filterProjects('web', event)">Web Systems</button>
+                <button class="filter-btn" onclick="filterProjects('xml', event)">XML / Blogger</button>
+                <button class="filter-btn" onclick="filterProjects('core', event)">Infrastructure</button>
+            </div>
+
+            <div class="grid" id="projectGrid">
+                <article class="card" data-category="web">
                     <h3>Enterprise Web Systems</h3>
                     <p>Proprietary high-speed layout frameworks optimized for heavy traffic performance and seamless UI responsiveness.</p>
                 </article>
-                <article class="card">
+                <article class="card" data-category="xml">
                     <h3>Blogger & Custom XML Architecture</h3>
                     <p>Advanced custom configuration scripts and robust structural widgets engineered for elite publishing platforms.</p>
                 </article>
-                <article class="card">
+                <article class="card" data-category="core">
                     <h3>VexorNull Core Infrastructure</h3>
                     <p>Centralized developer environment structured for maximum scalability, security compliance, and clean execution.</p>
                 </article>
@@ -778,6 +959,21 @@
         function toggleMenu() {
             const navMenu = document.getElementById('navMenu');
             navMenu.classList.toggle('active');
+        }
+
+        // Project Filter Logic
+        function filterProjects(category, event) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('#projectGrid .card');
+            cards.forEach(card => {
+                if(category === 'all' || card.getAttribute('data-category') === category) {
+                    card.classList.remove('hide');
+                } else {
+                    card.classList.add('hide');
+                }
+            });
         }
 
         // Copy to Clipboard with Toast Feedback
