@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Tanveer Connect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Tanveer <span>Connect</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Get In Touch</h1>
+        <p class="page-subtitle">Have a project in mind or want to collaborate? Drop a message below.</p>
+
+        <div class="grid-2" style="max-width: 800px; margin: 0 auto;">
+            <div class="card">
+                <h3 style="margin-bottom: 1rem; color: var(--accent-color);">Direct Information</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 0.5rem;"><strong>Location:</strong> Karachi, Pakistan</p>
+                <p style="color: var(--text-secondary); margin-bottom: 0.5rem;"><strong>Handle:</strong> @Official.Tanveer.70</p>
+                <p style="color: var(--text-secondary);">Available for professional consulting, web layout customization, and data management solutions.</p>
+            </div>
+            <div class="card">
+                <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; font-size: 0.85rem; margin-bottom: 0.4rem; color: var(--text-secondary);">Your Name</label>
+                        <input type="text" required style="width: 100%; padding: 0.75rem; background: rgba(15,23,42,0.6); border: 1px solid var(--border-color); border-radius: 8px; color: #fff; outline: none;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; font-size: 0.85rem; margin-bottom: 0.4rem; color: var(--text-secondary);">Email Address</label>
+                        <input type="email" required style="width: 100%; padding: 0.75rem; background: rgba(15,23,42,0.6); border: 1px solid var(--border-color); border-radius: 8px; color: #fff; outline: none;">
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; font-size: 0.85rem; margin-bottom: 0.4rem; color: var(--text-secondary);">Message</label>
+                        <textarea rows="4" required style="width: 100%; padding: 0.75rem; background: rgba(15,23,42,0.6); border: 1px solid var(--border-color); border-radius: 8px; color: #fff; outline: none; resize: none;"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Tanveer Connect. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
